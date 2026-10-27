@@ -139,7 +139,7 @@ document.addEventListener('error',e=>{const m=e.target;if(m&&m.tagName==='IMG'){
 const D=$('#ad');
 $('#ab').onclick=()=>{auth?adm():login();D.showModal()};
 function login(){
- D.innerHTML='<h3 style="font:800 26px var(--hd)">Login admin</h3><p class="sub">Masukkan kata sandi untuk mengelola isi website. sandi demo : admin123</p><label for="pw">Kata sandi</label><input id="pw" type="password" autocomplete="current-password"><div style="display:flex;gap:8px"><button class="btn" id="li">Masuk</button><button class="btn o" id="lc">Batal</button></div>';
+ D.innerHTML='<h3 style="font:800 26px var(--hd)">Login admin</h3><p class="sub">Masukkan kata sandi untuk mengelola isi website, sandi demo : admin123</p><label for="pw">Kata sandi</label><input id="pw" type="password" autocomplete="current-password"><div style="display:flex;gap:8px"><button class="btn" id="li">Masuk</button><button class="btn o" id="lc">Batal</button></div>';
  const go=()=>{if($('#pw').value===S.info.pw){auth=true;DR=JSON.parse(JSON.stringify(S));dirty=0;adm()}else toast('Kata sandi salah')};
  $('#li').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};$('#lc').onclick=()=>D.close();
 }
