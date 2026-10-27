@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warkop Demo – Ngopi Santai, Free WiFi</title>
+<meta name="description" content="Contoh website warkop. Kopi, mie, gorengan, dan free WiFi dengan harga bersahabat.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f7f4ec;--sf:#fff;--ink:#27302b;--mute:#667068;--gr:#1f4a3a;--gr2:#2d6a53;--am:#f2a93b;--am2:#d98a12;--ln:#e3ddcc;--hd:Fraunces,Georgia,serif;--bd:Nunito,system-ui,sans-serif;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141b17;--sf:#1d2722;--ink:#eee9dc;--mute:#9aa79d;--gr:#0f2a21;--ln:#2f3d35}}
+:root[data-theme=dark]{--bg:#141b17;--sf:#1d2722;--ink:#eee9dc;--mute:#9aa79d;--gr:#0f2a21;--ln:#2f3d35}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 var(--bd);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit}button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--am);outline-offset:2px}
+.w{max-width:1040px;margin:auto;padding:0 18px}
+header{position:sticky;top:0;z-index:10;background:var(--gr);color:#fff;padding-top:env(safe-area-inset-top,0px)}
+header .w{display:flex;justify-content:space-between;align-items:center;height:60px}
+.lg{display:flex;align-items:center;gap:10px;font:800 21px var(--hd);text-decoration:none}
+.lg i{width:34px;height:34px;border-radius:50%;background:var(--am);color:#2a1a05;display:grid;place-items:center;font:800 15px var(--hd);font-style:normal}
+nav{display:flex;gap:18px}nav a{text-decoration:none;font-weight:600;font-size:15px;opacity:.9}nav a:hover{color:var(--am)}
+.btn{display:inline-block;background:var(--am);color:#2a1a05;border:0;border-radius:10px;padding:11px 22px;font-weight:800;text-decoration:none}nav a.btn:hover{color:#2a1a05}
+.btn:hover{background:var(--am2)}.btn.o{background:none;border:2px solid currentColor;color:inherit}
+.hero{background:radial-gradient(640px 280px at 88% 0,rgba(242,169,59,.2),transparent 70%),var(--gr);color:#fff;padding:60px 0 68px}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+.hero h1{font:800 clamp(44px,8vw,80px)/1 var(--hd)}
+.hero p{margin:16px 0 26px;font-size:18px;opacity:.9;max-width:44ch}
+.hero .a{display:flex;gap:10px;flex-wrap:wrap}
+.card{background:var(--sf);color:var(--ink);border-radius:14px;padding:22px;box-shadow:0 10px 28px rgba(0,0,0,.14)}
+.card h3{font:800 22px var(--hd);margin-bottom:10px}
+.row{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--ln);font-size:15px}
+.row b{min-width:84px;color:var(--gr2)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .row b{color:var(--am)}}:root[data-theme=dark] .row b{color:var(--am)}
+section{padding:60px 0}
+h2{font:800 clamp(30px,5vw,42px)/1.15 var(--hd);color:var(--gr2);margin-bottom:6px}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) h2{color:var(--am)}}:root[data-theme=dark] h2{color:var(--am)}
+.sub{color:var(--mute);margin-bottom:22px;max-width:56ch}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
+.tabs button{background:var(--sf);border:1px solid var(--ln);padding:8px 18px;border-radius:10px;font-weight:700;white-space:nowrap}
+.tabs button.on{background:var(--gr2);color:#fff;border-color:var(--gr2)}
+.ch{grid-column:1/-1;font:800 20px var(--hd);color:var(--ink);margin:14px 0 0;padding-bottom:6px;border-bottom:2px solid var(--am)}.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}.feat div{background:var(--sf);border:1px solid var(--ln);border-left:4px solid var(--am);border-radius:14px;padding:16px 18px}.feat h4{font:800 18px var(--hd);color:var(--ink)}.feat p{font-size:14px;color:var(--mute)}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.it{background:var(--sf);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.it h4{font-size:17px;font-weight:800}.it p{font-size:13.5px;color:var(--mute)}
+.it .pr{font:800 17px var(--hd);color:var(--am2);white-space:nowrap}
+.it.off{opacity:.5}.it.off .pr{color:var(--mute)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.gal figure{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--ln)}
+.ph{display:grid;place-items:center;height:100%;padding:12px;text-align:center;color:var(--mute);font-size:13px}.gal img{width:100%;height:100%;object-fit:cover;display:block}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 9px;font-size:13.5px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.band{background:var(--sf);border-block:1px solid var(--ln)}
+.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+footer{background:var(--gr);color:#cfdad3;padding:44px 0 20px;font-size:14px;margin-top:20px}footer a{text-decoration:none}footer a:hover{color:var(--am)}.fg{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:28px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.15)}.fg h4{color:#fff;font:800 17px var(--hd);margin-bottom:8px}.fg p,.fg li{margin-bottom:4px}.fg ul{list-style:none;padding:0}.fb{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:16px}
+
+footer button{background:none;border:0;text-decoration:underline;color:#cfdad3;font-size:14px}
+input,select,textarea{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--ln);border-radius:10px;padding:10px 12px;font:inherit;margin:4px 0 10px}
+label{font-size:13px;color:var(--mute);font-weight:600}
+dialog{background:var(--sf);color:var(--ink);border:0;border-radius:20px;padding:22px;width:min(720px,94vw);max-height:92vh;overflow:auto;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+.ar{display:flex;gap:6px;align-items:center;padding:9px 0;border-top:1px solid var(--ln);font-size:14px;flex-wrap:wrap}
+.ar span{flex:1;min-width:140px}.ar img{width:54px;height:40px;object-fit:cover;border-radius:6px}
+.ar button{background:none;border:1px solid var(--ln);border-radius:8px;padding:4px 10px;font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.ts{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--gr);color:#fff;padding:10px 20px;border-radius:30px;z-index:99;display:none;font-weight:700;max-width:92vw}
+@media(max-width:720px){.hero .w{grid-template-columns:1fr}nav{gap:12px}nav a{font-size:13px}.lg{font-size:18px}nav .btn{display:none}.fg{grid-template-columns:1fr}section{padding:44px 0}.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="lg" href="#top"><i>wd</i>Warkop Demo</a><nav><a href="#menu">Menu</a><a href="#suasana">Suasana</a><a href="#lokasi">Lokasi</a><a class="btn" href="#lokasi" style="padding:7px 16px;font-size:14px">Hubungi</a></nav></div></header>
+<main id="top">
+<div class="hero"><div class="w">
+<div><h1 data-dyn id="hn"></h1><p data-dyn id="ht"></p><div class="a"><a class="btn" href="#menu">Lihat harga menu</a><a class="btn o" id="rt" target="_blank" rel="noopener">Rute ke warkop</a></div></div>
+<div class="card" data-dyn id="hc"></div>
+</div></div>
+
+<section style="padding:40px 0 0"><div class="w feat"><div><h4>Free WiFi</h4><p>Internet gratis untuk semua pelanggan.</p></div><div><h4>Harga bersahabat</h4><p>Dari kopi hingga mie, cocok untuk semua kantong.</p></div><div><h4>Nyaman berlama-lama</h4><p>Tempat santai untuk ngobrol, kerja, atau sekadar istirahat.</p></div></div></section>
+
+<section id="menu"><div class="w"><h2>Menu dan harga</h2><p class="sub">Daftar makanan dan minuman lengkap. Harga bisa berubah sewaktu-waktu.</p><div class="tabs" data-dyn id="tb"></div><div class="menu" data-dyn id="mn"></div></div></section>
+
+<section class="band" id="suasana"><div class="w"><h2>Suasana warkop</h2><p class="sub">Tempat nongkrong santai, ada free WiFi buat kerja atau main game.</p><div class="gal" data-dyn id="gl"></div></div></section>
+
+<section id="lokasi"><div class="w"><h2>Mampir ke sini</h2><p class="sub">Hubungi kami atau langsung datang.</p><div class="ct" data-dyn id="ct"></div></div></section>
+</main>
+<footer><div class="w"><div class="fg" data-dyn id="fb"></div><div class="fb"><span data-dyn id="ft"></span><button id="ab">Login admin</button></div></div></footer>
+<dialog id="ad" data-dyn></dialog>
+<div class="ts" id="ts" role="status"></div>
+
+<script id="seed" type="application/json">{"info":{"name":"Warkop Demo","tag":"Kopi, mie, dan camilan dengan harga bersahabat. Free WiFi untuk semua pelanggan.","phone":"0812 0000 0000","wa":"628120000000","addr":"Jl. Contoh No. 1, Kelurahan Contoh, Kota Anda","hours":"Buka setiap hari, 09.00 - 23.00","wifi":"Free WiFi untuk pelanggan","pw":"admin123"},"cats":["Kopi dan Teh","Minuman Dingin","Mie dan Makanan","Gorengan dan Camilan"],"items":[
+{"id":"a1","c":"Kopi dan Teh","n":"Kopi Hitam","p":4000,"d":"Pekat, panas, pas buat melek.","on":1},
+{"id":"a2","c":"Kopi dan Teh","n":"Kopi Susu","p":6000,"d":"Kopi dengan susu kental manis.","on":1},
+{"id":"a3","c":"Kopi dan Teh","n":"Teh Panas","p":3000,"d":"Teh manis hangat.","on":1},
+{"id":"a4","c":"Kopi dan Teh","n":"Susu Jahe","p":6000,"d":"Hangat dan menyegarkan badan.","on":1},
+{"id":"b1","c":"Minuman Dingin","n":"Es Teh Manis","p":4000,"d":"Segar, manisnya pas.","on":1},
+{"id":"b2","c":"Minuman Dingin","n":"Es Jeruk","p":6000,"d":"Jeruk peras dengan es batu.","on":1},
+{"id":"b3","c":"Minuman Dingin","n":"Es Kopi","p":6000,"d":"Kopi dingin untuk siang yang panas.","on":1},
+{"id":"b4","c":"Minuman Dingin","n":"Air Mineral Botol","p":4000,"d":"Dingin atau biasa.","on":1},
+{"id":"c1","c":"Mie dan Makanan","n":"Mie Rebus","p":8000,"d":"Pilih Indomie atau Mie Sedaap.","on":1},
+{"id":"c2","c":"Mie dan Makanan","n":"Mie Goreng","p":8000,"d":"Pilih Indomie atau Mie Sedaap.","on":1},
+{"id":"c3","c":"Mie dan Makanan","n":"Mie Telur","p":11000,"d":"Mie rebus atau goreng dengan telur.","on":1},
+{"id":"c4","c":"Mie dan Makanan","n":"Nasi Telur","p":10000,"d":"Nasi hangat dengan telur dadar.","on":1},
+{"id":"d1","c":"Gorengan dan Camilan","n":"Gorengan","p":1500,"d":"Tahu, tempe, dan pisang, per buah.","on":1},
+{"id":"d2","c":"Gorengan dan Camilan","n":"Keripik Pisang","p":3000,"d":"Renyah dan gurih manis.","on":1},
+{"id":"d3","c":"Gorengan dan Camilan","n":"Kerupuk","p":1000,"d":"Teman makan mie dan nasi.","on":1}
+],"gal":[{"id": "d0", "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20300%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%232d6a53%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%231f4a3a%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27400%27%20height%3D%27300%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%27200%27%20y%3D%27158%27%20font-family%3D%27sans-serif%27%20font-size%3D%2726%27%20fill%3D%27white%27%20fill-opacity%3D%27.85%27%20text-anchor%3D%27middle%27%3EFoto%20contoh%201%3C/text%3E%3C/svg%3E", "cap": "Contoh: suasana nongkrong malam hari"}, {"id": "d1", "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20300%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23f2a93b%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23d98a12%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27400%27%20height%3D%27300%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%27200%27%20y%3D%27158%27%20font-family%3D%27sans-serif%27%20font-size%3D%2726%27%20fill%3D%27white%27%20fill-opacity%3D%27.85%27%20text-anchor%3D%27middle%27%3EFoto%20contoh%202%3C/text%3E%3C/svg%3E", "cap": "Contoh: menu andalan warkop"}, {"id": "d2", "src": "data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20400%20300%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27g%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%271%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%236b4a2f%27/%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%233a2412%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%27400%27%20height%3D%27300%27%20fill%3D%27url%28%23g%29%27/%3E%3Ctext%20x%3D%27200%27%20y%3D%27158%27%20font-family%3D%27sans-serif%27%20font-size%3D%2726%27%20fill%3D%27white%27%20fill-opacity%3D%27.85%27%20text-anchor%3D%27middle%27%3EFoto%20contoh%203%3C/text%3E%3C/svg%3E", "cap": "Contoh: sudut santai untuk kerja dan ngobrol"}]}</script>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rp=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
+const SD=$('#seed').textContent;let H=0;for(let i=0;i<SD.length;i++)H=(H*31+SD.charCodeAt(i))|0;
+let S=JSON.parse(SD),cat='Semua',auth=false,edit=null,tab='menu',DR=null,dirty=0;
+try{const l=JSON.parse(localStorage.getItem('wdp_demo2')||'null');if(l&&l.v===H&&l.d&&l.d.info&&l.d.cats&&l.d.items&&Array.isArray(l.d.gal))S=l.d}catch(e){}
+const toast=m=>{const t=$('#ts');t.textContent=m;t.style.display='block';clearTimeout(t._t);t._t=setTimeout(()=>t.style.display='none',2800)};
+const save=()=>{try{localStorage.setItem('wdp_demo2',JSON.stringify({v:H,d:S}));return true}catch(e){toast('Penyimpanan perangkat penuh. Hapus beberapa foto lalu tekan Simpan.');return false}};
+
+function render(){
+ const i=S.info,q=encodeURIComponent('Warkop Demo '+i.addr);
+ document.title=i.name+' – Ngopi Santai, Free WiFi';
+ $('#hn').textContent=i.name;$('#ht').textContent=i.tag;
+ $('#rt').href='https://www.google.com/maps/search/?api=1&query='+q;
+ $('#hc').innerHTML='<h3>Info singkat</h3><div class="row"><b>Jam</b><span>'+esc(i.hours)+'</span></div><div class="row"><b>WiFi</b><span>'+esc(i.wifi)+'</span></div><div class="row"><b>Telepon</b><a href="tel:'+esc(i.phone.replace(/\s/g,''))+'">'+esc(i.phone)+'</a></div>';
+ if(cat!=='Semua'&&!S.cats.includes(cat))cat='Semua';
+ $('#tb').innerHTML=['Semua',...S.cats].map(c=>'<button class="'+(c===cat?'on':'')+'" data-c="'+esc(c)+'">'+esc(c)+'</button>').join('');
+ const row=x=>'<div class="it'+(x.on?'':' off')+'"><div><h4>'+esc(x.n)+'</h4><p>'+esc(x.d)+'</p></div><div class="pr">'+(x.on?rp(x.p):'Habis')+'</div></div>';
+ const its=S.items.filter(x=>cat==='Semua'||x.c===cat);
+ $('#mn').innerHTML=!its.length?'<p class="sub">Belum ada menu di kategori ini.</p>':cat==='Semua'?S.cats.map(c=>{const l=its.filter(x=>x.c===c);return l.length?'<h3 class="ch">'+esc(c)+'</h3>'+l.map(row).join(''):''}).join('')+its.filter(x=>!S.cats.includes(x.c)).map(row).join(''):its.map(row).join('');
+ $('#gl').innerHTML=S.gal.length?S.gal.map(g=>'<figure><img decoding="async" src="'+esc(g.src)+'" alt="'+esc(g.cap||'Suasana Warkop Demo')+'">'+(g.cap?'<figcaption>'+esc(g.cap)+'</figcaption>':'')+'</figure>').join(''):'<p class="sub">Foto kegiatan warkop akan tampil di sini.</p>';
+ $('#ct').innerHTML='<div class="card"><h3>Alamat</h3><p>'+esc(i.addr)+'</p><p style="margin-top:12px"><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+q+'">Buka di Google Maps</a></p></div><div class="card"><h3>Telepon dan WhatsApp</h3><p>'+esc(i.phone)+'</p><p style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="tel:'+esc(i.phone.replace(/\s/g,''))+'">Telepon</a><a class="btn o" target="_blank" rel="noopener" href="https://wa.me/'+esc(i.wa)+'">WhatsApp</a></p></div><div class="card"><h3>Jam buka</h3><p>'+esc(i.hours)+'</p></div>';
+ $('#fb').innerHTML='<div><h4>'+esc(i.name)+'</h4><p>'+esc(i.tag)+'</p></div><div><h4>Navigasi</h4><ul><li><a href="#menu">Menu dan harga</a></li><li><a href="#suasana">Suasana warkop</a></li><li><a href="#lokasi">Lokasi dan kontak</a></li></ul></div><div><h4>Kontak</h4><p>'+esc(i.addr)+'</p><p>'+esc(i.phone)+'</p><p>'+esc(i.hours)+'</p></div>';
+ $('#ft').textContent='© '+new Date().getFullYear()+' '+i.name+'. Semua hak dilindungi.';
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;render()}});
+
+document.addEventListener('error',e=>{const m=e.target;if(m&&m.tagName==='IMG'){const d=document.createElement('div');d.className='ph';d.textContent='Foto tidak dapat dimuat';m.replaceWith(d)}},true);
+/* ADMIN */
+const D=$('#ad');
+$('#ab').onclick=()=>{auth?adm():login();D.showModal()};
+function login(){
+ D.innerHTML='<h3 style="font:800 26px var(--hd)">Login admin</h3><p class="sub">Masukkan kata sandi untuk mengelola isi website.</p><label for="pw">Kata sandi</label><input id="pw" type="password" autocomplete="current-password"><div style="display:flex;gap:8px"><button class="btn" id="li">Masuk</button><button class="btn o" id="lc">Batal</button></div>';
+ const go=()=>{if($('#pw').value===S.info.pw){auth=true;DR=JSON.parse(JSON.stringify(S));dirty=0;adm()}else toast('Kata sandi salah')};
+ $('#li').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};$('#lc').onclick=()=>D.close();
+}
+function adm(){
+ const tb=(k,l)=>'<button class="btn'+(tab===k?'':' o')+'" data-t="'+k+'" style="padding:8px 16px">'+l+'</button>';
+ let h='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><h3 style="font:800 26px var(--hd)">Panel admin</h3>'+(dirty?'<b style="color:#c0392b;font-size:13px">Belum disimpan</b>':'')+'<span style="display:flex;gap:6px"><button class="btn" id="ph" style="padding:8px 16px">Simpan</button><button class="btn o" id="lo" style="padding:8px 16px">Keluar</button></span></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">'+tb('menu','Menu dan harga')+tb('gal','Foto')+tb('info','Info')+'</div>';
+ if(tab==='menu'){
+  const e=DR.items.find(x=>x.id===edit)||{n:'',p:'',d:'',c:DR.cats[0]};
+  h+='<div class="two"><div><label>Nama menu</label><input id="fn" value="'+esc(e.n)+'"></div><div><label>Harga (Rp)</label><input id="fp" type="number" min="0" value="'+esc(e.p)+'"></div></div><label>Keterangan singkat</label><input id="fd" value="'+esc(e.d)+'"><label>Kategori</label><select id="fc">'+DR.cats.map(c=>'<option'+(c===e.c?' selected':'')+'>'+esc(c)+'</option>').join('')+'</select><button class="btn" id="fs">'+(edit?'Simpan perubahan':'Tambah menu')+'</button> '+(edit?'<button class="btn o" id="fx">Batal</button>':'')+'<div style="margin-top:16px">'+DR.items.map(x=>'<div class="ar"><span>'+esc(x.n)+' <small style="color:var(--mute)">'+esc(x.c)+' · '+rp(x.p)+'</small></span><button data-s="'+x.id+'">'+(x.on?'Tandai habis':'Tersedia')+'</button><button data-e="'+x.id+'">Ubah</button><button data-d="'+x.id+'">Hapus</button></div>').join('')+'</div>';
+ }else if(tab==='gal'){
+  h+='<label>Keterangan foto (opsional)</label><input id="gc" placeholder="Contoh: Pelanggan nongkrong malam hari"><label>Pilih foto kegiatan warkop</label><input id="gf" type="file" accept="image/*" multiple><p class="sub" style="font-size:13px">Foto otomatis diperkecil agar website tetap cepat.</p><div>'+DR.gal.map(g=>'<div class="ar"><img src="'+esc(g.src)+'" alt=""><span>'+esc(g.cap||'Tanpa keterangan')+'</span><button data-g="'+g.id+'">Hapus</button></div>').join('')+'</div>';
+ }else if(tab==='info'){
+  const i=DR.info,f=(id,l,v,t)=>'<div><label>'+l+'</label><input id="'+id+'" type="'+(t||'text')+'" value="'+esc(v)+'"></div>';
+  h+='<div class="two">'+f('i1','Nama warkop',i.name)+f('i2','Telepon',i.phone)+f('i3','WhatsApp (format 62...)',i.wa)+f('i4','Jam buka',i.hours)+f('i5','Info WiFi',i.wifi)+f('i6','Alamat',i.addr)+'</div><label>Tagline</label><textarea id="i7" rows="2">'+esc(i.tag)+'</textarea><label>Kategori menu (pisahkan dengan koma)</label><input id="i8" value="'+esc(DR.cats.join(', '))+'">'+f('i9','Kata sandi admin baru (kosongkan jika tidak diganti)','','password')+'<button class="btn" id="is">Simpan info</button>';
+ }
+ D.innerHTML=h;
+ const q=s=>$(s);
+ q('#lo').onclick=()=>{const b=q('#lo');if(dirty&&!b.dataset.ok){b.dataset.ok=1;b.textContent='Buang perubahan?';toast('Ada perubahan belum disimpan. Tekan Simpan, atau tekan lagi untuk membuang.');return}D.close()};q('#ph').onclick=saveAll;if(dirty)q('#ph').style.boxShadow='0 0 0 3px rgba(192,57,43,.45)';
+ if(q('#fs'))q('#fs').onclick=()=>{
+  const n=q('#fn').value.trim();if(!n){toast('Nama menu wajib diisi');return}
+  const o={n,p:Math.max(0,+q('#fp').value||0),d:q('#fd').value.trim(),c:q('#fc').value};
+  if(edit)Object.assign(DR.items.find(x=>x.id===edit),o);else DR.items.push({id:'m'+Date.now(),on:1,...o});
+  edit=null;dirty=1;adm();toast('Dicatat. Tekan Simpan untuk menerapkan.');
+ };
+ if(q('#fx'))q('#fx').onclick=()=>{edit=null;adm()};
+ if(q('#gf'))q('#gf').onchange=async e=>{
+  const cap=q('#gc').value.trim();
+  for(const f of e.target.files){try{DR.gal.push({id:'g'+Date.now()+Math.random().toString(36).slice(2,5),src:await shrink(f),cap})}catch(x){toast('Foto tidak bisa dibaca')}}
+  dirty=1;adm();toast('Dicatat. Tekan Simpan untuk menerapkan.');
+ };
+ if(q('#is'))q('#is').onclick=()=>{
+  const i=DR.info;i.name=q('#i1').value||i.name;i.phone=q('#i2').value;i.wa=q('#i3').value.replace(/\D/g,'');i.hours=q('#i4').value;i.wifi=q('#i5').value;i.addr=q('#i6').value;i.tag=q('#i7').value;
+  const c=q('#i8').value.split(',').map(s=>s.trim()).filter(Boolean);if(c.length){const o=DR.cats;DR.items.forEach(x=>{if(!c.includes(x.c)){const k=o.indexOf(x.c);x.c=o.length===c.length&&k>=0?c[k]:c[0]}});DR.cats=c}
+  if(q('#i9').value)i.pw=q('#i9').value;
+  dirty=1;adm();toast('Dicatat. Tekan Simpan untuk menerapkan.');
+ };
+ if(q('#rs'))q('#rs').onclick=()=>{try{localStorage.removeItem('wdp_demo2')}catch(e){}location.reload()};
+ if(q('#pb'))q('#pb').onclick=publish;
+}
+D.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;const d=b.dataset;
+ if(d.t){tab=d.t;adm()}
+ else if(d.e){edit=d.e;adm();D.scrollTop=0}
+ else if(d.s){const x=DR.items.find(y=>y.id===d.s);x.on=x.on?0:1;dirty=1;adm()}
+ else if(d.d||d.g){const k=d.d||d.g;if(b.dataset.ok!==k){b.dataset.ok=k;b.textContent='Yakin hapus?';b.style.background='#c0392b';b.style.color='#fff';setTimeout(()=>{if(b.isConnected){b.dataset.ok='';b.textContent='Hapus';b.style.background='';b.style.color=''}},3000)}else{if(d.d)DR.items=DR.items.filter(y=>y.id!==k);else DR.gal=DR.gal.filter(y=>y.id!==k);dirty=1;adm()}}
+ 
+});
+function shrink(f){return new Promise((ok,no)=>{const r=new FileReader();r.onerror=no;r.onload=()=>{const im=new Image();im.onerror=no;im.onload=()=>{const m=900,k=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.72))};im.src=r.result};r.readAsDataURL(f)})}
+
+D.addEventListener('close',()=>{if(dirty)toast('Perubahan yang belum disimpan dibuang');DR=null;dirty=0;auth=false;edit=null;tab='menu'});
+async function saveAll(){if(!DR)return;S=JSON.parse(JSON.stringify(DR));dirty=0;save();render();adm();await publish()}
+async function publish(){
+ let a=null;try{a=await window.claude?.use('artifact')}catch(e){}
+ if(!a){toast('Tersimpan di perangkat ini saja. Buka halaman dari akun pemilik agar tampil untuk semua pengunjung.');return}
+ const c=document.documentElement.cloneNode(true),H=[],B=[];
+ c.querySelectorAll('[data-dyn]').forEach(n=>n.innerHTML='');
+ c.querySelector('#seed').textContent=JSON.stringify(S).replace(/</g,'\\u003c');
+ c.querySelector('#ad').removeAttribute('open');c.querySelector('#ts').removeAttribute('style');
+ let st=0;
+ for(const n of c.querySelector('head').children){
+  if(n.matches('meta[charset],meta[name=viewport],meta[name=description],title,link[href*="fonts.googleapis.com"]'))H.push(n.outerHTML);
+  else if(n.tagName==='STYLE'&&!st++)H.push(n.outerHTML)}
+ for(const n of c.querySelector('body').children){
+  if(n.matches('header,main,footer,dialog#ad,#ts,script#seed')||(n.tagName==='SCRIPT'&&!n.id&&!n.src&&n.textContent.includes('async function publish')))B.push(n.outerHTML)}
+ try{toast('Menyimpan...');try{localStorage.removeItem('wdp_demo2')}catch(e){}await a.publish('<!doctype html>\n<html lang="id"><head>'+H.join('\n')+'</head><body>'+B.join('\n')+'</body></html>');toast('Perubahan tersimpan')}catch(e){save();toast('Gagal menyimpan: '+(e.message||e.code||'coba lagi'))}
+}
+render();
+</script>
+</body>
+</html>
